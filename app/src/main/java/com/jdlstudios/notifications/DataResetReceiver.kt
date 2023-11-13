@@ -44,6 +44,10 @@ class DataResetReceiver : BroadcastReceiver() {
             }
 
             4 -> {
+                createProgressBarNotificationCustomPoints(context)
+            }
+
+            5 -> {
                 createProgressBarNotificationCustomPointsCrane(context)
             }
         }
@@ -663,6 +667,132 @@ class DataResetReceiver : BroadcastReceiver() {
                                 customContentView.setImageViewResource(
                                     R.id.imagen_13,
                                     R.drawable.camion_grua
+                                )
+                            }
+
+                            100 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_13,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_22,
+                                    R.drawable.endpointred
+                                )
+                                customContentView.setTextViewText(
+                                    R.id.title,
+                                    "Alfredo ha llegado a la dirección"
+                                )
+                                customContentView.setTextViewText(
+                                    R.id.subtitle,
+                                    "Hemos llegado a la dirección"
+                                )
+                            }
+                        }
+
+                        if (ActivityCompat.checkSelfPermission(
+                                context,
+                                Manifest.permission.POST_NOTIFICATIONS
+                            ) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            return
+                        }
+                        notify(NOTIFICATION_ID, notification.build())
+                    } else {
+                        // When done, update the notification one more time to remove the progress bar
+                        notification.setOnlyAlertOnce(false)
+                        notification.setContentText("Download complete")
+                            .setProgress(0, 0, false)
+                        notify(NOTIFICATION_ID, notification.build())
+                        // Cancel the timer
+                        timer.cancel()
+                    }
+                }
+            }, 0, 100)
+        }
+
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.notify(NOTIFICATION_ID, notification.build())
+    }
+
+    private fun createProgressBarNotificationCustomPoints(context: Context) {
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val progressMax = 100
+        val progressCurrent = 0
+
+        val customContentView =
+            RemoteViews(context.packageName, R.layout.custom_notification_layout_points)
+
+        customContentView.setImageViewResource(
+            R.id.imagen_21,
+            R.drawable.endpoint
+        )
+        customContentView.setProgressBar(
+            R.id.notificationProgressBar,
+            progressMax,
+            progressCurrent,
+            false
+        )
+
+        val pendingIntent: PendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID).apply {
+            setBadgeIconType(BADGE_ICON_LARGE)
+            setSmallIcon(R.drawable.rimac)
+            priority = PRIORITY_LOW
+            setContentIntent(pendingIntent)
+            setCustomContentView(customContentView)
+            setCustomBigContentView(customContentView)
+            setAutoCancel(true)
+            setVisibility(VISIBILITY_PUBLIC)
+        }
+
+        NotificationManagerCompat.from(context).apply {
+            notification.setProgress(progressMax, progressCurrent, false)
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                return
+            }
+            notify(NOTIFICATION_ID, notification.build())
+
+            val timer = Timer()
+            timer.scheduleAtFixedRate(object : TimerTask() {
+                var progress = 0
+                var progress2 = 0
+
+                override fun run() {
+                    if (progress <= progressMax) {
+                        progress += 1
+
+                        // Update progress and notification
+                        notification.setOnlyAlertOnce(true)
+                        notification.setProgress(progressMax, progress, false)
+                        customContentView.setProgressBar(
+                            R.id.notificationProgressBar1,
+                            50,
+                            progress,
+                            false
+                        )
+                        if (progress >= 50){
+                            customContentView.setProgressBar(
+                                R.id.notificationProgressBar2,
+                                50,
+                                progress-50,
+                                false
+                            )
+                        }
+
+                        when (progress) {
+                            50 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_21,
+                                    R.drawable.endpointred
                                 )
                             }
 

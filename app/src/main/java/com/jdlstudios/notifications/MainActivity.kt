@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonNotificationProgressBarPoints.setOnClickListener {
             scheduleNotification(4)
         }
+        binding.buttonNotificationProgressBarPointsGrua.setOnClickListener {
+            scheduleNotification(5)
+        }
 
         setContentView(binding.root)
 
