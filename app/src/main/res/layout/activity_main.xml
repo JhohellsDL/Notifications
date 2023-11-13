@@ -7,65 +7,102 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/button_notification_basic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion basic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:id="@+id/button_notification_basic"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:text="Notificacion basic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/basica"/>
 
-    <Button
-        android:id="@+id/button_notification_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar 1 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_basic"/>
+        <Button
+            android:id="@+id/button_notification_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:text="Notificacion ProgressBar 1 "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/progressbar_basico"/>
 
-    <Button
-        android:id="@+id/button_notification_progress_bar_grua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar grua"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar"/>
+        <Button
+            android:id="@+id/button_notification_progress_bar_grua"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:text="Notificacion ProgressBar grua"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/progressbar_crane"/>
 
-    <Button
-        android:id="@+id/button_notification_progress_bar_points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar Points"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar"/>
+        <Button
+            android:id="@+id/button_notification_progress_bar_points"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:text="Notificacion ProgressBar Points"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_grua" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/points"/>
 
-    <Button
-        android:id="@+id/button_notification_progress_bar_points_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar Points Time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points"/>
+        <Button
+            android:id="@+id/button_notification_progress_bar_points_time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:text="Notificacion ProgressBar Points Time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/points_time"/>
 
-    <Button
-        android:id="@+id/button_notification_progress_bar_points_grua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar Points Grua"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points_time"/>
+        <Button
+            android:id="@+id/button_notification_progress_bar_points_grua"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:text="Notificacion ProgressBar Points Grua"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points_time" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/button_notification_basic"
+            android:src="@drawable/points_crane"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
