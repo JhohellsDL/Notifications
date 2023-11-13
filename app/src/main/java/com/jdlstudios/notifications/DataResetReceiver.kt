@@ -163,63 +163,18 @@ class DataResetReceiver : BroadcastReceiver() {
         val customContentView =
             RemoteViews(context.packageName, R.layout.custom_notification_layout)
 
-        // Set the icon and progress values in the custom layout
-        customContentView.setImageViewResource(
-            R.id.imagen_0,
-            R.drawable.custom_icom_space_transparent
+        val imageResourceIds = intArrayOf(
+            R.id.imagen_0, R.id.imagen_1, R.id.imagen_2, R.id.imagen_3,
+            R.id.imagen_4, R.id.imagen_5, R.id.imagen_6, R.id.imagen_7,
+            R.id.imagen_8, R.id.imagen_9, R.id.imagen_10, R.id.imagen_11,
+            R.id.imagen_12, R.id.imagen_13
         )
-        customContentView.setImageViewResource(
-            R.id.imagen_1,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_2,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_3,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_4,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_5,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_6,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_7,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_8,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_9,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_10,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_11,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_12,
-            R.drawable.custom_icom_space_transparent
-        )
-        customContentView.setImageViewResource(
-            R.id.imagen_13,
-            R.drawable.custom_icom_space_transparent
-        )
+        for (i in imageResourceIds.indices) {
+            customContentView.setImageViewResource(
+                imageResourceIds[i],
+                R.drawable.custom_icom_space_transparent
+            )
+        }
         customContentView.setImageViewResource(
             R.id.imagen_21,
             R.drawable.endpoint
