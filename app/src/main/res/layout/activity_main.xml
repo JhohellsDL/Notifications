@@ -34,11 +34,20 @@
         app:layout_constraintTop_toBottomOf="@id/button_notification_basic"/>
 
     <Button
-        android:id="@+id/button_notification_progress_bar_1"
+        android:id="@+id/button_notification_progress_bar_grua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notificacion ProgressBar 2"
+        android:text="Notificacion ProgressBar grua"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar"/>
+
+    <Button
+        android:id="@+id/button_notification_progress_bar_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificacion ProgressBar Points Grua"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_grua"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
