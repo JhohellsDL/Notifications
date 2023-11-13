@@ -472,7 +472,7 @@ class DataResetReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID).apply {
             setBadgeIconType(BADGE_ICON_LARGE)
-            setSmallIcon(R.drawable.rimac)
+            setSmallIcon(R.drawable.rimacicon)
             priority = PRIORITY_LOW
             setContentIntent(pendingIntent)
             setCustomContentView(customContentView)
