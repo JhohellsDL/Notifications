@@ -1,0 +1,14 @@
+<!-- res/drawable/custom_progress_icon.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Ícono personalizado -->
+    <item
+        android:id="@+id/iconLayer"
+        android:drawable="@drawable/baseline_remove_transparent"
+        android:gravity="center_vertical|start"
+        android:left="0dp"
+        android:right="4dp">
+    </item>
+
+</layer-list>

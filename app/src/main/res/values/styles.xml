@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilo personalizado para la ProgressBar -->
+    <!-- Estilo personalizado para la ProgressBar -->
+    <style name="MyProgressBarStyle" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:minHeight">10dp</item>
+    </style>
+
+</resources>

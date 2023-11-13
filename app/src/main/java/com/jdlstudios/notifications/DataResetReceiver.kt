@@ -17,12 +17,12 @@ import androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC
 import androidx.core.app.NotificationManagerCompat
 import java.util.Timer
 import java.util.TimerTask
+import kotlin.concurrent.scheduleAtFixedRate
 
 class DataResetReceiver : BroadcastReceiver() {
 
     companion object {
         const val NOTIFICATION_ID = 1
-        const val NOTIFICATION_ID_1 = 1
         const val CHANNEL_ID = "myChannel"
     }
 
@@ -39,6 +39,10 @@ class DataResetReceiver : BroadcastReceiver() {
 
             2 -> {
                 createProgressBarNotification(context)
+            }
+
+            3 -> {
+                createProgressBarNotificationCustom(context)
             }
         }
     }
@@ -85,7 +89,7 @@ class DataResetReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val notification = NotificationCompat.Builder(
-            context, "myChannel1"
+            context, CHANNEL_ID
         ).apply {
             setBadgeIconType(BADGE_ICON_LARGE)
             setSmallIcon(R.drawable.rimac)
@@ -106,7 +110,7 @@ class DataResetReceiver : BroadcastReceiver() {
             ) {
                 return
             }
-            notify(NOTIFICATION_ID_1, notification.build())
+            notify(NOTIFICATION_ID, notification.build())
 
             val timer = Timer()
             timer.scheduleAtFixedRate(object : TimerTask() {
@@ -126,13 +130,13 @@ class DataResetReceiver : BroadcastReceiver() {
                         ) {
                             return
                         }
-                        notify(NOTIFICATION_ID_1, notification.build())
+                        notify(NOTIFICATION_ID, notification.build())
                     } else {
                         // When done, update the notification one more time to remove the progress bar
                         notification.setOnlyAlertOnce(false)
                         notification.setContentText("Download complete")
                             .setProgress(0, 0, false)
-                        notify(NOTIFICATION_ID_1, notification.build())
+                        notify(NOTIFICATION_ID, notification.build())
                         // Cancel the timer
                         timer.cancel()
                     }
@@ -144,7 +148,322 @@ class DataResetReceiver : BroadcastReceiver() {
         }
 
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.notify(NOTIFICATION_ID_1, notification.build())
+        manager.notify(NOTIFICATION_ID, notification.build())
 
+    }
+
+    private fun createProgressBarNotificationCustom(context: Context) {
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val progressMax = 100
+        val progressCurrent = 0
+
+        val customContentView =
+            RemoteViews(context.packageName, R.layout.custom_notification_layout)
+
+        // Set the icon and progress values in the custom layout
+        customContentView.setImageViewResource(
+            R.id.imagen_0,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_1,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_2,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_3,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_4,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_5,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_6,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_7,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_8,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_9,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_10,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_11,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_12,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_13,
+            R.drawable.custom_icom_space_transparent
+        )
+        customContentView.setImageViewResource(
+            R.id.imagen_21,
+            R.drawable.endpoint
+        )
+        customContentView.setProgressBar(
+            R.id.notificationProgressBar,
+            progressMax,
+            progressCurrent,
+            false
+        )
+
+        val pendingIntent: PendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID).apply {
+            setBadgeIconType(BADGE_ICON_LARGE)
+            setSmallIcon(R.drawable.rimac)
+            priority = PRIORITY_LOW
+            setContentIntent(pendingIntent)
+            setCustomContentView(customContentView)
+            setCustomBigContentView(customContentView)
+            setAutoCancel(true)
+            setVisibility(VISIBILITY_PUBLIC)
+        }
+
+        NotificationManagerCompat.from(context).apply {
+            notification.setProgress(progressMax, progressCurrent, false)
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                return
+            }
+            notify(NOTIFICATION_ID, notification.build())
+
+            val timer = Timer()
+            timer.scheduleAtFixedRate(object : TimerTask() {
+                var progress = 0
+
+                override fun run() {
+                    if (progress <= progressMax) {
+                        progress += 1
+                        // Update progress and notification
+                        notification.setOnlyAlertOnce(true)
+                        notification.setProgress(progressMax, progress, false)
+                        customContentView.setProgressBar(
+                            R.id.notificationProgressBar,
+                            progressMax,
+                            progress,
+                            false
+                        )
+                        when (progress) {
+                            1 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_0,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            7 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_0,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_1,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            12 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_1,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_2,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            18 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_2,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_3,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            26 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_3,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_4,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            32 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_4,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_5,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            40 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_5,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_6,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            47 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_6,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_7,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            52 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_7,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_8,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            60 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_8,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_9,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            68 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_9,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_10,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            74 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_10,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_11,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            82 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_11,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_12,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            90 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_12,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_13,
+                                    R.drawable.camion_grua
+                                )
+                            }
+
+                            100 -> {
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_13,
+                                    R.drawable.custom_icom_space_transparent
+                                )
+                                customContentView.setImageViewResource(
+                                    R.id.imagen_21,
+                                    R.drawable.endpointred
+                                )
+                                customContentView.setTextViewText(
+                                    R.id.title,
+                                    "Alfredo ha llegado a la dirección"
+                                )
+                                customContentView.setTextViewText(
+                                    R.id.subtitle,
+                                    "Hemos llegado a la dirección"
+                                )
+                            }
+                        }
+
+                        if (ActivityCompat.checkSelfPermission(
+                                context,
+                                Manifest.permission.POST_NOTIFICATIONS
+                            ) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            return
+                        }
+                        notify(NOTIFICATION_ID, notification.build())
+                    } else {
+                        // When done, update the notification one more time to remove the progress bar
+                        notification.setOnlyAlertOnce(false)
+                        notification.setContentText("Download complete")
+                            .setProgress(0, 0, false)
+                        notify(NOTIFICATION_ID, notification.build())
+                        // Cancel the timer
+                        timer.cancel()
+                    }
+                }
+            }, 0, 100)
+        }
+
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.notify(NOTIFICATION_ID, notification.build())
     }
 }

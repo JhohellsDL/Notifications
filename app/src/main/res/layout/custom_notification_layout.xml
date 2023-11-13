@@ -1,0 +1,276 @@
+<!-- res/layout/custom_notification_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:gravity="top"
+        android:lineSpacingExtra="2sp"
+        android:text="Alfredo Gutiérrez está en camino"
+        android:textStyle="bold"
+        android:translationY="-1.05sp" />
+
+    <ProgressBar
+        android:id="@+id/notificationProgressBar"
+        style="@style/MyProgressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="86" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="-26dp">
+
+        <ImageView
+            android:id="@+id/imagen_0"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_7"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_8"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_9"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_10"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_11"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_12"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+
+        <ImageView
+            android:id="@+id/imagen_13"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/camion_grua" />
+        <!--
+                <ImageView
+                    android:id="@+id/imagen_13"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_14"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_15"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_16"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_17"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_18"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_19"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+
+                <ImageView
+                    android:id="@+id/imagen_20"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/camion_grua" />
+        -->
+        <ImageView
+            android:id="@+id/imagen_22"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/custom_icom_space_transparent" />
+        <ImageView
+            android:id="@+id/imagen_21"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/endpoint" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ubicationcard" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:textSize="12sp"
+                android:text="Recogeremos tu auto en"
+                android:textStyle="bold"
+                android:translationY="-0.3sp" />
+
+            <TextView
+                android:id="@+id/subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:textSize="12sp"
+                android:paddingTop="6dp"
+                android:text="Av. Begonias 540, San Isidro"
+                android:translationY="-0.3sp" />
+
+            <TextView
+                android:id="@+id/subtitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:textSize="12sp"
+                android:paddingTop="4dp"
+                android:text="Referencia: Altura del hospital del Niño"
+                android:translationY="-0.3sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
