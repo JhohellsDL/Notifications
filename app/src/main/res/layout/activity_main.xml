@@ -52,11 +52,20 @@
         app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar"/>
 
     <Button
+        android:id="@+id/button_notification_progress_bar_points_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificacion ProgressBar Points Time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points"/>
+
+    <Button
         android:id="@+id/button_notification_progress_bar_points_grua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Notificacion ProgressBar Points Grua"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_grua"/>
+        app:layout_constraintTop_toBottomOf="@id/button_notification_progress_bar_points_time"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

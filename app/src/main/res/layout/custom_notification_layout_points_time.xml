@@ -1,0 +1,170 @@
+<!-- res/layout/custom_notification_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_light"
+            android:text="Iván está en camino"
+            android:textSize="13sp"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:gravity="top"
+            android:textSize="11sp"
+            android:layout_gravity="center"
+            tools:text="Llega en : 00:00" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/notificationProgressBar1"
+            style="@style/MyProgressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="66" />
+
+        <ImageView
+            android:id="@+id/imagen_21"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:src="@drawable/endpoint" />
+
+        <ProgressBar
+            android:id="@+id/notificationProgressBar2"
+            style="@style/MyProgressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:max="100" />
+
+        <ImageView
+            android:id="@+id/imagen_22"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:src="@drawable/endpoint" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+
+        <ImageView
+            android:id="@+id/image_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/usercard" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/subtitle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:text="Técnico Iván Postigo"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:translationY="-0.3sp" />
+
+            <TextView
+                android:id="@+id/subtitle5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:paddingTop="4dp"
+                android:text="Llegará a las 10:18 a.m. aprox."
+                android:textSize="12sp"
+                android:translationY="-0.3sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <ImageView
+            android:id="@+id/image_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ubicationcard" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:text="Recogeremos tu auto en"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:translationY="-0.3sp" />
+
+            <TextView
+                android:id="@+id/subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:paddingTop="4dp"
+                android:text="Av. Begonias 540, San Isidro"
+                android:textSize="12sp"
+                android:translationY="-0.3sp" />
+
+            <TextView
+                android:id="@+id/subtitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:lineSpacingExtra="1sp"
+                android:paddingTop="2dp"
+                android:text="Referencia: Altura del hospital del Niño"
+                android:textSize="12sp"
+                android:translationY="-0.3sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
